@@ -1,0 +1,139 @@
+app:
+  product: "marketplace"
+  name: "adapter-mgm-ms"
+  baseVersion: "0.0"
+  artifactExt: "zip"
+  tecnology: "Dotnet"
+  buildTool: "publish"
+  unitTestingTool: "dotnet"
+  buildTargetPath: "adapter\\adapter\\bin\\Release"
+  functionalTestingTool: "newman"
+  repositoryType: "app"
+  notificationType: "mail"
+  mailTo: "squad_marketplace@getnet.com.br"
+  openshift:
+    limits.cpu: "500m"
+    limits.memory: "1512Mi"
+    requests.cpu: "100m"
+    requests.memory: "832Mi"
+    livenessProbe.initialDelaySeconds: "150"
+    readinessProbe.initialDelaySeconds: "150"
+  stages:
+    des:
+      serverEnvs:
+        des:
+          configs:
+            replicas: 1
+            autoscaleCPUEnable: 'false'
+            autoscaleMinReplicas: 1
+            autoscaleMaxReplicas: 2
+            autoscaleCPUPercente: 80
+            skip_deploy: "false"
+            skip_hotfix: "true"
+            route_timeout: '120s'
+            appDynamicsEnable: "false"
+            appDynamicsApplicationName: 'MarketPlace'
+            app_extra_vars: '--launch-profile hg'
+            app_env:
+        desbatch:
+          configs:
+            replicas: 1
+            autoscaleCPUEnable: 'false'
+            autoscaleMinReplicas: 1
+            autoscaleMaxReplicas: 2
+            autoscaleCPUPercente: 80
+            skip_deploy: "false"
+            skip_hotfix: "true"
+            route_timeout: '120s'
+            appDynamicsEnable: "false"
+            appDynamicsApplicationName: 'MarketPlace'
+            app_extra_vars: '--launch-profile hg'
+            app_env:
+    hml:
+      serverEnvs:
+        hti:
+          configs:
+            replicas: 1
+            autoscaleCPUEnable: 'false'
+            autoscaleMinReplicas: 1
+            autoscaleMaxReplicas: 2
+            autoscaleCPUPercente: 80
+            skip_deploy: "false"
+            skip_hotfix: "true"
+            route_timeout: '120s'
+            appDynamicsEnable: "false"
+            appDynamicsApplicationName: 'MarketPlace'
+            app_extra_vars: '--launch-profile hti'
+            app_env:
+        htibatch:
+         configs:
+            replicas: 1
+            autoscaleCPUEnable: 'false'
+            autoscaleMinReplicas: 1
+            autoscaleMaxReplicas: 2
+            autoscaleCPUPercente: 80
+            skip_deploy: "false"
+            skip_hotfix: "true"
+            route_timeout: '120s'
+            appDynamicsEnable: "false"
+            appDynamicsApplicationName: 'MarketPlace'
+            app_extra_vars: '--launch-profile htibatch'
+            app_env:
+        hcli:
+          configs:
+            replicas: 1
+            autoscaleCPUEnable: 'false'
+            autoscaleMinReplicas: 1
+            autoscaleMaxReplicas: 2
+            autoscaleCPUPercente: 80
+            skip_deploy: "false"
+            skip_hotfix: "true"
+            route_timeout: '120s'
+            appDynamicsEnable: "false"
+            appDynamicsApplicationName: 'MarketPlace'
+            app_extra_vars: '--launch-profile hcli'
+            app_env:
+        hk:
+           configs:
+            replicas: 1
+            autoscaleCPUEnable: 'false'
+            autoscaleMinReplicas: 1
+            autoscaleMaxReplicas: 2
+            autoscaleCPUPercente: 80
+            skip_deploy: "false"
+            skip_hotfix: "true"
+            route_timeout: '120s'
+            appDynamicsEnable: "false"
+            appDynamicsApplicationName: 'MarketPlace'
+            app_extra_vars: '--launch-profile hk'
+            app_env:
+    prd:
+      serverEnvs:
+        prd:
+           configs:
+            replicas: 1
+            autoscaleCPUEnable: 'false'
+            autoscaleMinReplicas: 1
+            autoscaleMaxReplicas: 2
+            autoscaleCPUPercente: 80
+            skip_deploy: "false"
+            skip_hotfix: "true"
+            route_timeout: '120s'
+            appDynamicsEnable: "false"
+            appDynamicsApplicationName: 'MarketPlace'
+            app_extra_vars: '--launch-profile prd'
+            app_env:
+        prdbatch:
+           configs:
+            replicas: 1
+            autoscaleCPUEnable: 'false'
+            autoscaleMinReplicas: 1
+            autoscaleMaxReplicas: 2
+            autoscaleCPUPercente: 80
+            skip_deploy: "false"
+            skip_hotfix: "true"
+            route_timeout: '120s'
+            appDynamicsEnable: "false"
+            appDynamicsApplicationName: 'MarketPlace'
+            app_extra_vars: '--launch-profile prdbatch'
+            app_env:
